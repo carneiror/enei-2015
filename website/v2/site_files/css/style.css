@@ -1724,6 +1724,17 @@ footer {
 	text-align: left;
 }
 
+
+#partners img {
+	filter: grayscale(100%) brightness(150%);
+	-webkit-filter: grayscale(100%) brightness(150%);
+}
+
+#partners img:hover {
+	filter: initial;
+	-webkit-filter: initial;
+}
+
 @media (min-width: 768px) {
 
 	#registration .caption,

@@ -1,18 +1,16 @@
-var menus = [];
-var i = 0;
+$( document ).ready(function() {
+    var i;
 
-(function() {
+    $('#test').on('click', function () {
+        for (i = 0; i < 10000; i++) {
+            $("body").append("<div id='myDiv'></div>");
 
-    function Menu(title, id) {
-        this.title = title;
-        this.elem = document.getElementById('container').getElementsByClassName('dummy')[0];
-    }
+            // window['thisLeak' + i] = $("#myDiv");
 
-    setInterval(function () {
-        var menu = new Menu('My Menu', i);
+            var thisLeak = $("#myDiv");
 
-        menus.push(menu);
+            $("body").empty();
+        }
+    });
 
-        document.getElementById('container').innerHTML = '<div class="dummy">dummy element ' + (++i) +'</div>';
-    }, 100);
-})();
+});

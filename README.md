@@ -3,7 +3,7 @@
 A 101 talk about performance: page load and runtime CSS/JS.
 
 ### Page load
-The subject was [enei.pt](http://sgtcarneiro.github.io/enei-2015/v1). The original scores on [webpagetest](http://www.webpagetest.org/) and [pagespeed insights](https://developers.google.com/speed/pagespeed/insights/) were pretty bad and during this presentation I tried to improve this scores.
+The subject was [enei.pt](http://sgtcarneiro.github.io/enei-2015/website/v1). The original scores on [webpagetest](http://www.webpagetest.org/) and [pagespeed insights](https://developers.google.com/speed/pagespeed/insights/) were pretty bad and during this presentation I tried to improve this scores.
 
 ### Runtime CSS
 Examplained how browser renders you CSS into the page and how you can debug that. Some examples were added.

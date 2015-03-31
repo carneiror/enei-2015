@@ -2,9 +2,10 @@
 
 A 101 talk about performance: page load and runtime CSS/JS.
 
-![](https://raw.github.com/carneiror/enei-2015/screenshot.png)
+[![](https://raw.githubusercontent.com/carneiror/enei-2015/master/screenshot.png)](https://www.youtube.com/watch?v=5v8FFLFRq5k&t=18347)
 
 **Slides:** http://sgtcarneiro.github.io/enei-2015/slides
+**Presentation:** https://www.youtube.com/watch?v=5v8FFLFRq5k&t=18347
 
 ### Page load
 The subject was [enei.pt](http://sgtcarneiro.github.io/enei-2015/website/v1). The original scores on [webpagetest](http://www.webpagetest.org/) and [pagespeed insights](https://developers.google.com/speed/pagespeed/insights/) were pretty bad and during this presentation I tried to improve this scores.

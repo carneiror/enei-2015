@@ -2,7 +2,7 @@
 
 A 101 talk about performance: page load and runtime CSS/JS.
 
-**Slides:** _Still need to upload them -.-_
+**Slides:** http://sgtcarneiro.github.io/enei-2015/slides
 
 ### Page load
 The subject was [enei.pt](http://sgtcarneiro.github.io/enei-2015/website/v1). The original scores on [webpagetest](http://www.webpagetest.org/) and [pagespeed insights](https://developers.google.com/speed/pagespeed/insights/) were pretty bad and during this presentation I tried to improve this scores.

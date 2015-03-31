@@ -2,6 +2,8 @@
 
 A 101 talk about performance: page load and runtime CSS/JS.
 
+![](https://raw.github.com/carneiror/enei-2015/screenshot.png)
+
 **Slides:** http://sgtcarneiro.github.io/enei-2015/slides
 
 ### Page load

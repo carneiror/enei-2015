@@ -6,7 +6,7 @@ A 101 talk about performance: page load and runtime CSS/JS.
 
 **Slides:** http://carneiror.github.io/enei-2015/slides
 
-**Presentation:** https://www.youtube.com/watch?v=5v8FFLFRq5k&t=18347
+**Presentation:** https://www.youtube.com/watch?v=5v8FFLFRq5k&t=18347 (portuguese)
 
 ### Page load
 The subject was [enei.pt](http://carneiror.github.io/enei-2015/website/v1). The original scores on [webpagetest](http://www.webpagetest.org/) and [pagespeed insights](https://developers.google.com/speed/pagespeed/insights/) were pretty bad and during this presentation I tried to improve this scores.

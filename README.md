@@ -2,24 +2,28 @@
 
 A 101 talk about performance: page load and runtime CSS/JS.
 
-**Slides:** http://sgtcarneiro.github.io/enei-2015/slides
+[![](https://raw.githubusercontent.com/carneiror/enei-2015/master/screenshot.png)](https://www.youtube.com/watch?v=5v8FFLFRq5k&t=18347)
+
+**Slides:** http://carneiror.github.io/enei-2015/slides
+
+**Presentation:** https://www.youtube.com/watch?v=5v8FFLFRq5k&t=18347
 
 ### Page load
-The subject was [enei.pt](http://sgtcarneiro.github.io/enei-2015/website/v1). The original scores on [webpagetest](http://www.webpagetest.org/) and [pagespeed insights](https://developers.google.com/speed/pagespeed/insights/) were pretty bad and during this presentation I tried to improve this scores.
+The subject was [enei.pt](http://carneiror.github.io/enei-2015/website/v1). The original scores on [webpagetest](http://www.webpagetest.org/) and [pagespeed insights](https://developers.google.com/speed/pagespeed/insights/) were pretty bad and during this presentation I tried to improve this scores.
 
-- http://sgtcarneiro.github.io/enei-2015/website/v1
-- http://sgtcarneiro.github.io/enei-2015/website/v2
-- http://sgtcarneiro.github.io/enei-2015/website/v3
+- http://carneiror.github.io/enei-2015/website/v1
+- http://carneiror.github.io/enei-2015/website/v2
+- http://carneiror.github.io/enei-2015/website/v3
 
 ### Runtime CSS
 Examplained how browser renders you CSS into the page and how you can debug that. Some examples were added.
 
-- http://sgtcarneiro.github.io/enei-2015/rendering
+- http://carneiror.github.io/enei-2015/rendering
 
 ## Runtime JS
 Some examples of layout trashing and memory leaks. Explained how you can use Chrome DevTools to debug that.
 
-- http://sgtcarneiro.github.io/enei-2015/profiling
+- http://carneiror.github.io/enei-2015/profiling
 
 **Sources**
 - https://developers.google.com/speed/pagespeed/insights

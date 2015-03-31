@@ -1,0 +1,1346 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Web performance: The good, the bad and the ugly</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+		<link rel="stylesheet" href="css/slides.com.css">
+	</head>
+
+	<body>
+
+		<div class="theme-font-montserrat theme-color-grey-blue" style="width: 100%; height: 100%;">
+		    <div class="reveal">
+		        <div class="slides">
+		            <section>
+		                <div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 250px; height: auto;">
+		                    <div class="sl-block-content" style="z-index: 11;">
+		                        <h1>
+		                            <font>
+		                                <font>
+		                                    <font>
+		                                        <font>Web performance</font>
+		                                    </font>
+		                                </font>
+		                            </font>
+		                        </h1>
+		                        <p>
+		                            <font>
+		                                <font>
+		                                    <font>
+		                                        <font>The good, the bad and the ugly</font>
+		                                    </font>
+		                                </font>
+		                            </font>
+		                        </p>
+		                    </div>
+		                </div>
+		            </section>
+		            <section>
+		                <div class="sl-block" data-block-type="text" style="width: 800px; left: 79px; top: 50px; height: auto;">
+		                    <div class="sl-block-content">
+		                        <h2>Who I am?</h2>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="image" style="width: 439px; height: 526.8px; left: 260px; top: 140px;">
+		                    <div class="sl-block-content">
+		                        <img data-natural-width="750" data-natural-height="900" style="visibility: visible;" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/ruicarneiro/images/1216561/ruicarneiro.jpg"/>
+		                    </div>
+		                </div>
+		            </section>
+		            <section>
+		                <div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 33px; height: auto;">
+		                    <div class="sl-block-content" style="z-index: 11; background-color: rgba(0, 0, 0, 0);">
+		                        <h2>What is Blip?</h2>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="width: 428px; left: 525px; top: 255px; height: auto;">
+		                    <div class="sl-block-content fragment" style="z-index: 12; text-align: left; border-width: 1px; background-color: rgba(0, 0, 0, 0);" data-fragment-index="0">
+		                        <ul>
+		                            <li>
+		                                <span style="font-size:20px">Company from&nbsp;Porto with 6&nbsp;years</span>
+		                            </li>
+		                            <li>
+		                                <span style="font-size:20px">We are more than 200</span>
+		                            </li>
+		                            <li>
+		                                <span style="font-size:20px">Currently work exclusively for Betfair</span>
+		                            </li>
+		                        </ul>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 434px; left: 525px; top: 372px;">
+		                    <div class="sl-block-content fragment" style="z-index: 13; text-align: left; background-color: rgba(0, 0, 0, 0);" data-fragment-index="1">
+		                        <ul>
+		                            <li>
+		                                <span style="font-size:20px">Top 3 in the larger Oracle DB in the world</span>
+		                            </li>
+		                            <li>
+		                                <span style="font-size:20px">7 Million transactions per day</span>
+		                            </li>
+		                            <li>
+		                                <span style="font-size:20px">4M active users daily</span>
+		                            </li>
+		                        </ul>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="image" style="min-width: 30px; min-height: 30px; width: 532px; height: 356.25px; left: 0px; top: 204.375px;">
+		                    <div class="sl-block-content" style="z-index: 14;">
+		                        <img data-natural-width="1344" data-natural-height="900" style="visibility: visible;" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/ruicarneiro/images/1216569/blip.jpg"/>
+		                    </div>
+		                </div>
+		            </section>
+		            <section>
+		                <div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 33px; height: auto;">
+		                    <div class="sl-block-content" style="z-index: 11; background-color: rgba(0, 0, 0, 0);">
+		                        <h2>Performance</h2>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 260px;">
+		                    <div class="sl-block-content" style="z-index: 12;">
+		                        <p>
+		                            <span style="font-size:32px">Page Load</span>
+		                        </p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 326px;">
+		                    <div class="sl-block-content" style="z-index: 13;">
+		                        <p style="color:rgb(255, 255, 255); font-size:37.5px">
+		                            <span style="font-size:32px">Runtime CSS</span>
+		                        </p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 400px;">
+		                    <div class="sl-block-content" style="z-index: 14;">
+		                        <p>
+		                            <span style="font-size:32px">
+		                                <span style="color:rgb(255, 255, 255)">Runtime JS</span>
+		                            </span>
+		                        </p>
+		                    </div>
+		                </div>
+		            </section>
+		            <section>
+		                <div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 33px; height: auto;">
+		                    <div class="sl-block-content" style="z-index: 12; background-color: rgba(0, 0, 0, 0);">
+		                        <h2>
+		                            <font>
+		                                <font>
+		                                    <font>
+		                                        <font>Human Perception</font>
+		                                    </font>
+		                                </font>
+		                            </font>
+		                        </h2>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 40px; top: 160px;">
+		                    <div class="sl-block-content fragment" style="z-index: 13;" data-fragment-index="0">
+		                        <h3 style="text-align: left;">
+		                            <font>
+		                                <font>
+		                                    <font>
+		                                        <font>1993</font>
+		                                    </font>
+		                                </font>
+		                            </font>
+		                        </h3>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 40px; top: 420px;">
+		                    <div class="sl-block-content fragment" style="z-index: 14;" data-fragment-index="1">
+		                        <h3 style="text-align: left;">
+		                            <font>
+		                                <font>
+		                                    <font>
+		                                        <font>
+		                                            <font>
+		                                                <font>2014</font>
+		                                            </font>
+		                                        </font>
+		                                    </font>
+		                                </font>
+		                            </font>
+		                        </h3>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 215px; left: 40px; top: 245px;">
+		                    <div class="sl-block-content fragment" style="z-index: 15; text-align: center; padding: 16px; background-color: rgb(106, 168, 79);" data-fragment-index="0">
+		                        <p>
+		                            <font>
+		                                <font>
+		                                    <font>
+		                                        <font>0-100ms</font>
+		                                    </font>
+		                                </font>
+		                            </font>
+		                        </p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 215px; left: 275px; top: 245px;">
+		                    <div class="sl-block-content fragment" style="z-index: 16; padding: 16px; background-color: rgb(230, 145, 56);" data-fragment-index="0">
+		                        <p>
+		                            <font>
+		                                <font>
+		                                    <font>
+		                                        <font>1second&nbsp;+</font>
+		                                    </font>
+		                                </font>
+		                            </font>
+		                        </p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 215px; left: 510px; top: 245px;">
+		                    <div class="sl-block-content fragment" style="z-index: 11; padding: 16px; background-color: rgb(204, 0, 0);" data-fragment-index="0">
+		                        <p>
+		                            <font>
+		                                <font>
+		                                    <font>
+		                                        <font>10 seconds +</font>
+		                                    </font>
+		                                </font>
+		                            </font>
+		                        </p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 160px; left: 40px; top: 489px;">
+		                    <div class="sl-block-content fragment" style="z-index: 17; text-align: center; padding: 16px; background-color: rgb(106, 168, 79);" data-fragment-index="1">
+		                        <p>
+		                            <font>
+		                                <font>
+		                                    <font>
+		                                        <font>0-100ms</font>
+		                                    </font>
+		                                </font>
+		                            </font>
+		                        </p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 187px; left: 221px; top: 489px;">
+		                    <div class="sl-block-content fragment" style="z-index: 18; padding: 16px; color: rgb(255, 255, 255); background-color: rgb(230, 145, 56);" data-fragment-index="1">
+		                        <p>
+		                            <font>
+		                                <font>
+		                                    <font>
+		                                        <font>100ms - 1s</font>
+		                                    </font>
+		                                </font>
+		                            </font>
+		                        </p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 195px; left: 423px; top: 489px;">
+		                    <div class="sl-block-content fragment" style="z-index: 19; padding: 16px; background-color: rgb(204, 0, 0);" data-fragment-index="1">
+		                        <p>
+		                            <font>
+		                                <font>
+		                                    <font>
+		                                        <font>
+		                                            <font>
+		                                                <font>1second&nbsp;+</font>
+		                                            </font>
+		                                        </font>
+		                                    </font>
+		                                </font>
+		                            </font>
+		                        </p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 220px; left: 634px; top: 489px;">
+		                    <div class="sl-block-content fragment" style="z-index: 10; padding: 16px; background-color: rgb(0, 0, 0);" data-fragment-index="1">
+		                        <p>
+		                            <font>
+		                                <font>
+		                                    <font>
+		                                        <font>
+		                                            <font>
+		                                                <font>10 seconds +</font>
+		                                            </font>
+		                                        </font>
+		                                    </font>
+		                                </font>
+		                            </font>
+		                        </p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="image" style="min-width: 30px; min-height: 30px; width: 301.212121212121px; height: 355px; left: 600px; top: 302px;">
+		                    <div class="sl-block-content fragment" style="z-index: 20;" data-fragment-index="2">
+		                        <img data-natural-width="252" data-natural-height="297" style="visibility: visible;" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/ruicarneiro/images/1213934/rip.png"/>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 220px; left: 634px; top: 489px;">
+		                    <div class="sl-block-content fragment" style="z-index: 22; padding: 16px; color: rgb(0, 0, 0); background-color: rgba(0, 0, 0, 0);" data-fragment-index="2">
+		                        <p>
+		                            <strong>
+		                                <font>
+		                                    <font>10 seconds +​</font>
+		                                </font>
+		                            </strong>
+		                        </p>
+		                    </div>
+		                </div>
+		            </section>
+		            <section>
+		                <div class="sl-block" data-block-type="text" style="width: 800px; left: 82px; top: 33px; height: auto;">
+		                    <div class="sl-block-content" style="z-index: 11; background-color: rgba(0, 0, 0, 0);">
+		                        <h2>
+		                            <font>
+		                                <font>
+		                                    <font>
+		                                        <font>Page load</font>
+		                                    </font>
+		                                </font>
+		                            </font>
+		                        </h2>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 182px; top: 194px;">
+		                    <div class="sl-block-content" style="z-index: 12;">
+		                        <p>SPDY / HTTP 2
+		                            <br/>
+		Concat + minify JS &amp; CSS
+		                            <br/>
+		GZIP
+		                            <br/>
+		CDN
+		                            <br/>
+		Image sprites
+		                            <br/>
+		Cache-busting
+		                            <br/>
+		Lazy load
+		                            <br/>
+		Scripts at the end &amp; styles at the start
+		                        </p>
+		                    </div>
+		                </div>
+		            </section>
+		            <section data-background-image="https://s3.amazonaws.com/media-p.slid.es/uploads/ruicarneiro/images/1170659/enei-site.png"></section>
+		            <section>
+		                <div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 33px; height: auto;">
+		                    <div class="sl-block-content" style="z-index: 11; background-color: rgba(0, 0, 0, 0);">
+		                        <h2>First stats</h2>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 960px; left: 0px; top: 210px;">
+		                    <div class="sl-block-content fragment" style="z-index: 12;" dir="ui" data-fragment-index="0">
+		                        <p>6,32 mb only to load the first page</p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 280px;">
+		                    <div class="sl-block-content fragment" style="z-index: 13;" data-fragment-index="1">
+		                        <p style="color:rgb(255, 255, 255)">
+		                            <font>
+		                                <font>
+		                                    <font>
+		                                        <font>51 Images</font>
+		                                    </font>
+		                                </font>
+		                            </font>
+		                        </p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 350px;">
+		                    <div class="sl-block-content fragment" style="z-index: 14;" data-fragment-index="2">
+		                        <p style="color:rgb(255, 255, 255)">
+		                            <font>
+		                                <font>
+		                                    <font>
+		                                        <font>11 files Javascript</font>
+		                                    </font>
+		                                </font>
+		                            </font>
+		                        </p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 179px; top: 420px;">
+		                    <div class="sl-block-content fragment" style="z-index: 15;" data-fragment-index="3">
+		                        <p style="color:rgb(255, 255, 255)">
+		                            <font>
+		                                <font>
+		                                    <font>
+		                                        <font>1 HTML file</font>
+		                                    </font>
+		                                </font>
+		                            </font>
+		                        </p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 490px;">
+		                    <div class="sl-block-content fragment" style="z-index: 16;" data-fragment-index="4">
+		                        <p>
+		                            <span style="color:rgb(255, 255, 255)">
+		                                <font>
+		                                    <font>
+		                                        <font>
+		                                            <font>€ 0.25 cost</font>
+		                                        </font>
+		                                    </font>
+		                                </font>
+		                            </span>
+		                        </p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 560px;">
+		                    <div class="sl-block-content fragment" style="z-index: 17;" data-fragment-index="5">
+		                        <p>All this for a static page...</p>
+		                    </div>
+		                </div>
+		            </section>
+		            <section>
+		                <div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 33px; height: auto;">
+		                    <div class="sl-block-content" style="z-index: 11; background-color: rgba(0, 0, 0, 0);" dir="ui">
+		                        <h2>
+		                            <font>
+		                                <font>www.webpagetest.org</font>
+		                            </font>
+		                        </h2>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="image" style="min-width: 30px; min-height: 30px; width: 659.866666666667px; height: 490px; left: 150.566666666667px; top: 140px;">
+		                    <div class="sl-block-content" style="z-index: 12;">
+		                        <a href="http://www.webpagetest.org/" target="_blank">
+		                            <img style="visibility: visible;" data-natural-width="1212" data-natural-height="900" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/ruicarneiro/images/1213865/first-page.png"/>
+		                        </a>
+		                    </div>
+		                </div>
+		            </section>
+		            <section>
+		                <div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 33px; height: auto;">
+		                    <div class="sl-block-content" style="z-index: 11; background-color: rgba(0, 0, 0, 0);">
+		                        <h2>
+		                            <font>
+		                                <font>
+		                                    <font>
+		                                        <font>Results</font>
+		                                    </font>
+		                                </font>
+		                            </font>
+		                        </h2>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="image" style="min-width: 30px; min-height: 30px; width: 890.349397590362px; height: 153px; left: 35px; top: 274px;">
+		                    <div class="sl-block-content" style="z-index: 12;">
+		                        <img data-natural-width="966" data-natural-height="166" style="visibility: visible;" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/ruicarneiro/images/1213917/enei-webpagetest-first-run.png"/>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 655px; left: 125px; top: 171px;">
+		                    <div class="sl-block-content" style="z-index: 13;">
+		                        <p>
+		                            <font>
+		                                <font>
+		                                    <font>
+		                                        <font>43.6 seconds to load the page!</font>
+		                                    </font>
+		                                </font>
+		                            </font>
+		                        </p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="image" style="min-width: 30px; min-height: 30px; width: 480px; height: 480px; left: 240px; top: 140px;">
+		                    <div class="sl-block-content fragment" style="z-index: 14;" data-fragment-index="0">
+		                        <img data-natural-width="400" data-natural-height="400" style="visibility: visible;" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/ruicarneiro/images/1213929/slow-meme.jpg"/>
+		                    </div>
+		                </div>
+		            </section>
+		            <section>
+		                <div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 33px; height: auto;">
+		                    <div class="sl-block-content" style="z-index: 11; background-color: rgba(0, 0, 0, 0);" dir="ui">
+		                        <h2>
+		                            <font>
+		                                <font>
+		                                    <font>
+		                                        <font>PageSpeed Insights</font>
+		                                    </font>
+		                                </font>
+		                            </font>
+		                        </h2>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 960px; left: 0px; top: 107px;">
+		                    <div class="sl-block-content" style="z-index: 12; text-align: left;">
+		                        <pre style="text-align:center">
+		                            <a href="https://developers.google.com/speed/pagespeed/insights" target="_blank">
+		                                <span style="font-size:16px">https://developers.google.com/speed/pagespeed/insights</span>
+		                            </a>
+		                        </pre>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="image" style="min-width: 30px; min-height: 30px; width: 360px; height: 300px; left: 300px; top: 200px;">
+		                    <div class="sl-block-content" style="z-index: 13;">
+		                        <img style="visibility: hidden;" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/ruicarneiro/images/1214931/1-Test-Desktop.png"/>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="image" style="min-width: 30px; min-height: 30px; width: 452.25px; height: 134px; left: 254px; top: 200px;">
+		                    <div class="sl-block-content" style="z-index: 14;">
+		                        <img data-natural-width="1080" data-natural-height="320" style="visibility: visible;" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/ruicarneiro/images/1214933/1-Test-Desktop.png"/>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="image" style="min-width: 30px; min-height: 30px; width: 452px; height: 148.211812627291px; left: 254px; top: 350px;">
+		                    <div class="sl-block-content" style="z-index: 15;">
+		                        <img data-natural-width="982" data-natural-height="322" style="visibility: visible;" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/ruicarneiro/images/1214934/1-Test-Mobile.png"/>
+		                    </div>
+		                </div>
+		            </section>
+		            <section>
+		                <div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 270px; height: auto;">
+		                    <div class="sl-block-content">
+		                        <h1>Let's try to improve!</h1>
+		                    </div>
+		                </div>
+		            </section>
+		            <section>
+		                <div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 33px; height: auto;">
+		                    <div class="sl-block-content" style="z-index: 10; background-color: rgba(0, 0, 0, 0);">
+		                        <h2>Version 1</h2>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 960px; left: 0px; top: 101px;">
+		                    <div class="sl-block-content" style="z-index: 11;">
+		                        <p>
+		                            <a href="http://goo.gl/nEFPVh" target="_blank">http://goo.gl/nEFPVh</a>
+		                        </p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 143px; left: 326px; top: 285px;">
+		                    <div class="sl-block-content" style="z-index: 12; font-size: 125%; background-color: rgb(204, 0, 0);">
+		                        <p>17/100</p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 154px; left: 486px; top: 285px;">
+		                    <div class="sl-block-content" style="z-index: 13; text-align: left; font-size: 125%;">
+		                        <p>Desktop</p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 183px; top: 226px;">
+		                    <div class="sl-block-content" style="z-index: 17;">
+		                        <p>
+		                            <strong>Startup point</strong>
+		                        </p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 143px; left: 323px; top: 465px;">
+		                    <div class="sl-block-content" style="z-index: 18; font-size: 125%; background-color: rgb(95, 208, 62);">
+		                        <p>90/100</p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 154px; left: 483px; top: 465px;">
+		                    <div class="sl-block-content" style="z-index: 19; text-align: left; font-size: 125%;">
+		                        <p>Desktop</p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 406px;">
+		                    <div class="sl-block-content" style="z-index: 22;">
+		                        <p>
+		                            <strong>Ideally</strong>
+		                        </p>
+		                    </div>
+		                </div>
+		            </section>
+		            <section>
+		                <div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 33px; height: auto;">
+		                    <div class="sl-block-content" style="z-index: 11; background-color: rgba(0, 0, 0, 0);">
+		                        <h2>Image Optimization</h2>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 171px;">
+		                    <div class="sl-block-content" style="z-index: 12;">
+		                        <p>
+		                            <strong>Using ImageOptim</strong>
+		                        </p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 228px;">
+		                    <div class="sl-block-content" style="z-index: 13;">
+		                        <p>Saved 2.6MB out of 6.3MB</p>
+		                        <p>42.4% average</p>
+		                        <p>71.1% maximum</p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 433px;">
+		                    <div class="sl-block-content" style="z-index: 14;">
+		                        <p>
+		                            <strong>Limiting to 800x600</strong>
+		                        </p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 484px;">
+		                    <div class="sl-block-content" style="z-index: 15;">
+		                        <p>Total 3.4 MB -&nbsp;54%</p>
+		                    </div>
+		                </div>
+		            </section>
+		            <section>
+		                <div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 270px; height: auto;">
+		                    <div class="sl-block-content">
+		                        <h1>Not enough</h1>
+		                    </div>
+		                </div>
+		            </section>
+		            <section>
+		                <div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 33px; height: auto;">
+		                    <div class="sl-block-content" style="z-index: 11; background-color: rgba(0, 0, 0, 0);">
+		                        <h2>CSS for the rescue</h2>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="code" style="min-width: 30px; min-height: 30px; width: 641px; height: 197px; left: 160px; top: 182px;">
+		                    <div class="sl-block-content" style="z-index: 12;">
+		                        <pre><code>#partners img {
+		    filter: grayscale(100%) brightness(150%);
+		    -webkit-filter: grayscale(100%) brightness(150%);
+		}
+
+		#partners img:hover {
+		    filter: initial;
+		    -webkit-filter: initial;
+		}</code></pre>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 560px;">
+		                    <div class="sl-block-content" style="z-index: 13;">
+		                        <p>
+		                            <span style="font-size:16px">
+		                                <a href="http://sgtcarneiro.github.io/enei-2015/website/v2/" target="_blank">http://sgtcarneiro.github.io/enei-2015/website/v2/</a>
+		                            </span>
+		                        </p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 462px;">
+		                    <div class="sl-block-content" style="z-index: 14;">
+		                        <p>
+		                            <span style="font-size:16px">
+		                                <a href="http://sgtcarneiro.github.io/enei-2015/website/v1" target="_blank">http://sgtcarneiro.github.io/enei-2015/website/v1</a>
+		                            </span>
+		                        </p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 515px;">
+		                    <div class="sl-block-content" style="z-index: 15;">
+		                        <p>vs</p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 181px; top: 368px;">
+		                    <div class="sl-block-content" style="z-index: 16;">
+		                        <p>
+		                            <span style="font-size:16px">Note: Not working for IE (who cares...)</span>
+		                        </p>
+		                    </div>
+		                </div>
+		            </section>
+		            <section>
+		                <div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 33px; height: auto;">
+		                    <div class="sl-block-content" style="z-index: 11; background-color: rgba(0, 0, 0, 0);">
+		                        <h2>Version 3</h2>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 101px;">
+		                    <div class="sl-block-content" style="z-index: 12;">
+		                        <p>
+		                            <span style="font-size:16px">http://sgtcarneiro.github.io/enei-2015/website/v3</span>
+		                        </p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 176px;">
+		                    <div class="sl-block-content" style="z-index: 13;">
+		                        <p>Resized images one by one</p>
+		                        <p>Minified JS+CSS</p>
+		                        <p>Concat JS+CSS</p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 143px; left: 65px; top: 404px;">
+		                    <div class="sl-block-content fragment" style="z-index: 14; font-size: 125%; background-color: rgb(204, 0, 0);" data-fragment-index="0">
+		                        <p>17/100</p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 154px; left: 225px; top: 404px;">
+		                    <div class="sl-block-content fragment" style="z-index: 15; text-align: left; font-size: 125%;" data-fragment-index="0">
+		                        <p>Desktop</p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 291px; left: 80px; top: 350px;">
+		                    <div class="sl-block-content fragment" style="z-index: 16;" data-fragment-index="0">
+		                        <p>
+		                            <strong>From</strong>
+		                        </p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 27px; height: 27px; left: 467px; top: 386px;">
+		                    <div class="sl-block-content fragment" data-shape-type="triangle-right" data-shape-fill-color="rgb(255, 255, 255)" data-shape-stretch="false" style="z-index: 17;" data-shape-stroke-color="#000000" data-shape-stroke-width="3" data-fragment-index="0">
+		                        <svg
+		                            xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveAspectRatio="xMidYMid" viewBox="0 0 27 27">
+		                            <defs>
+		                                <clipPath id="shape-mask-29-1427629347629">
+		                                    <polygon points="27,13.5 0,27 0,0"></polygon>
+		                                </clipPath>
+		                            </defs>
+		                            <polygon points="27,13.5 0,27 0,0" clip-path="url(#shape-mask-29-1427629347629)" class="shape-element" fill="rgb(255, 255, 255)" stroke="#000000" stroke-width="6"></polygon>
+		                        </svg>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 143px; left: 591px; top: 401px;">
+		                    <div class="sl-block-content fragment" style="z-index: 18; font-size: 125%; background-color: rgb(204, 0, 0);" data-fragment-index="1">
+		                        <p>59/100</p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 154px; left: 751px; top: 401px;">
+		                    <div class="sl-block-content fragment" style="z-index: 19; text-align: left; font-size: 125%;" data-fragment-index="1">
+		                        <p>Desktop</p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 291px; left: 606px; top: 349px;">
+		                    <div class="sl-block-content fragment" style="z-index: 20;" data-fragment-index="1">
+		                        <p>To</p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 552px;">
+		                    <div class="sl-block-content fragment" style="z-index: 21; font-size: 185%;" data-fragment-index="2">
+		                        <p>DISAPPOINTING :(</p>
+		                    </div>
+		                </div>
+		            </section>
+		            <section>
+		                <div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 33px; height: auto;">
+		                    <div class="sl-block-content" style="z-index: 10; background-color: rgba(0, 0, 0, 0);">
+		                        <h2>Still...</h2>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="image" style="min-width: 30px; min-height: 30px; width: 743px; height: 129.560625px; left: 109px; top: 424px;">
+		                    <div class="sl-block-content fragment" style="z-index: 11;" data-fragment-index="1">
+		                        <img data-natural-width="1600" data-natural-height="279" style="visibility: visible;" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/ruicarneiro/images/1215269/final-page.png"/>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="image" style="min-width: 30px; min-height: 30px; width: 743px; height: 127.679089026915px; left: 109px; top: 185px;">
+		                    <div class="sl-block-content fragment" style="z-index: 12;" data-fragment-index="0">
+		                        <img data-natural-width="966" data-natural-height="166" style="visibility: visible;" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/ruicarneiro/images/1215271/enei-webpagetest-first-run.png"/>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 140px;">
+		                    <div class="sl-block-content fragment" style="z-index: 13;" data-fragment-index="0">
+		                        <p>Before</p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 381px;">
+		                    <div class="sl-block-content fragment" style="z-index: 15;" data-fragment-index="1">
+		                        <p>After</p>
+		                    </div>
+		                </div>
+		            </section>
+		            <section>
+		                <div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 33px; height: auto;">
+		                    <div class="sl-block-content" style="z-index: 10; background-color: rgba(0, 0, 0, 0);">
+		                        <h2>Still...</h2>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 211px; left: 50px; top: 322px;">
+		                    <div class="sl-block-content" style="z-index: 11; text-align: left;">
+		                        <p>
+		                            <strong>Load&nbsp;time</strong>
+		                        </p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 158px; left: 50px; top: 392px;">
+		                    <div class="sl-block-content" style="z-index: 12; text-align: left;">
+		                        <p>
+		                            <strong>Size</strong>
+		                        </p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 203px; left: 290px; top: 322px;">
+		                    <div class="sl-block-content" style="z-index: 13; text-align: center;">
+		                        <p>37.1s</p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 203px; left: 290px; top: 392px;">
+		                    <div class="sl-block-content" style="z-index: 14; text-align: center;">
+		                        <p>6.3MB</p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 203px; left: 290px; top: 251px;">
+		                    <div class="sl-block-content" style="z-index: 15; text-align: center;">
+		                        <p>
+		                            <strong>Before</strong>
+		                        </p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 203px; left: 513px; top: 323px;">
+		                    <div class="sl-block-content" style="z-index: 17; text-align: center;">
+		                        <p>4s</p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 203px; left: 513px; top: 393px;">
+		                    <div class="sl-block-content" style="z-index: 18; text-align: center;">
+		                        <p>2.2MB</p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 203px; left: 513px; top: 252px;">
+		                    <div class="sl-block-content" style="z-index: 19; text-align: center;">
+		                        <p>
+		                            <strong>After</strong>
+		                        </p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 241.5px; left: 50px; top: 349px;">
+		                    <div class="sl-block-content" style="z-index: 20; font-size: 75%; text-align: left;">
+		                        <p>
+		                            <em>
+		                                <span style="font-size:16px">
+		                                    <span style="color:rgb(255, 255, 255); text-align:left">* ignoring server response time</span>
+		                                </span>
+		                            </em>
+		                        </p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 203px; left: 716px; top: 322px;">
+		                    <div class="sl-block-content" style="z-index: 21; text-align: center;">
+		                        <p>
+		                            <span style="color:#00FF00">
+		                                <strong>x9.3 faster</strong>
+		                            </span>
+		                        </p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 203px; left: 716px; top: 392px;">
+		                    <div class="sl-block-content" style="z-index: 22; text-align: center;">
+		                        <p>
+		                            <strong>
+		                                <span style="color:#00FF00">x2.9 lighter</span>
+		                            </strong>
+		                        </p>
+		                    </div>
+		                </div>
+		            </section>
+		            <section>
+		                <div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 33px; height: auto;">
+		                    <div class="sl-block-content" style="z-index: 11; background-color: rgba(0, 0, 0, 0);">
+		                        <h2>What was still missing</h2>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 190px; top: 210px;">
+		                    <div class="sl-block-content" style="z-index: 12;">
+		                        <p>GZIP</p>
+		                        <p>
+		                            <span style="color:rgb(255, 255, 255)">CDN</span>
+		                            <br/>
+		                            <span style="color:rgb(255, 255, 255)">Image sprites</span>
+		                        </p>
+		                        <p>
+		                            <span style="color:rgb(255, 255, 255)">Removing unused CSS</span>
+		                        </p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 190px; top: 433px;">
+		                    <div class="sl-block-content fragment" style="z-index: 13;" data-fragment-index="0">
+		                        <p>and</p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 190px; top: 509px;">
+		                    <div class="sl-block-content fragment" style="z-index: 14;" data-fragment-index="1">
+		                        <p>A good web server :P</p>
+		                    </div>
+		                </div>
+		            </section>
+		            <section>
+		                <div class="sl-block" data-block-type="text" style="width: 800px; left: 70px; top: 270px; height: auto;">
+		                    <div class="sl-block-content">
+		                        <h1>Runtime</h1>
+		                    </div>
+		                </div>
+		            </section>
+		            <section class="has-light-background" data-background-image="https://s3.amazonaws.com/media-p.slid.es/uploads/ruicarneiro/images/1215282/css-is-awesome.png" data-background-size="initial" data-background-color="#ffffff"></section>
+		            <section>
+		                <div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 33px; height: auto;">
+		                    <div class="sl-block-content" style="z-index: 11; background-color: rgba(0, 0, 0, 0);">
+		                        <h2>Rendering</h2>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 374px; left: 80px; top: 256px;">
+		                    <div class="sl-block-content" style="z-index: 12; text-align: left;">
+		                        <ul>
+		                            <li style="color:rgb(238, 238, 238)">Recalculate style</li>
+		                            <li style="color:rgb(238, 238, 238)">Layout</li>
+		                            <li style="color:rgb(238, 238, 238)">Paint setup &amp; Paint</li>
+		                            <li style="color:rgb(238, 238, 238)">Composite layers</li>
+		                        </ul>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="image" style="min-width: 30px; min-height: 30px; width: 466.876404494382px; height: 371px; left: 454px; top: 165px;">
+		                    <div class="sl-block-content" style="z-index: 13;">
+		                        <img style="visibility: visible;" data-natural-width="1120" data-natural-height="890" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/ruicarneiro/images/1215378/rendering-example.png"/>
+		                    </div>
+		                </div>
+		            </section>
+		            <section>
+		                <div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 33px; height: auto;">
+		                    <div class="sl-block-content" style="z-index: 11; background-color: rgba(0, 0, 0, 0);">
+		                        <h2>Recalculate Style</h2>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 868px; left: 46px; top: 191px;">
+		                    <div class="sl-block-content" style="z-index: 12;" dir="ui">
+		                        <p style="color:rgb(238, 238, 238)">Matches the CSS styles with your HTML (DOM)</p>
+		                        <p style="color:rgb(238, 238, 238)">Runs every time a CSS property changes</p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="code" style="min-width: 30px; min-height: 30px; width: 509px; height: 209px; left: 226px; top: 386px;">
+		                    <div class="sl-block-content fragment" style="z-index: 13;" data-fragment-index="0">
+		                        <pre><code>1- ID, e.g. #header
+		2- Class, e.g. .promo
+		3- Type, e.g. div
+		4- Adjacent sibling, e.g. h2 + p
+		5- Child, e.g. li &gt; ul
+		6- Descendant, e.g. ul a
+		7- Universal, i.e. *
+		8- Attribute, e.g. [type="text"]
+		9- Pseudo-classes/-elements, e.g. a:hover</code></pre>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 804px; left: 78px; top: 331px;">
+		                    <div class="sl-block-content fragment" style="z-index: 14;" data-fragment-index="0">
+		                        <p>
+		                            <span style="color:rgb(238, 238, 238)">Selectors ordered from more to less efficient:</span>
+		                        </p>
+		                    </div>
+		                </div>
+		            </section>
+		            <section>
+		                <div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 33px; height: auto;">
+		                    <div class="sl-block-content" style="z-index: 11; background-color: rgba(0, 0, 0, 0);">
+		                        <h2>Layout</h2>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 940px; left: 9px; top: 265px;">
+		                    <div class="sl-block-content" style="z-index: 12;" dir="ui">
+		                        <p style="color:rgb(238, 238, 238)">Calculation of positions and geometry</p>
+		                        <p style="color:rgb(238, 238, 238)">Only CSS properties that change geometry and position affects this (e.g. width, height, top, margin)</p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 900px; left: 30px; top: 490px;">
+		                    <div class="sl-block-content" style="z-index: 13;">
+		                        <p>
+		                            <strong>
+		                                <span style="font-size:32px">Protip:&nbsp;</span>
+		                            </strong>
+		                            <span style="font-size:32px">Keep your DOM as short as possible!</span>
+		                        </p>
+		                    </div>
+		                </div>
+		            </section>
+		            <section>
+		                <div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 33px; height: auto;">
+		                    <div class="sl-block-content" style="z-index: 11; background-color: rgba(0, 0, 0, 0);">
+		                        <h2>Paint and Setup</h2>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 926px; left: 17px; top: 241px;">
+		                    <div class="sl-block-content" style="z-index: 12;">
+		                        <p style="color:rgb(238, 238, 238)">Fill out the pixels for each element into layers</p>
+		                        <p style="color:rgb(238, 238, 238)">
+		                            <span style="color:rgb(238, 238, 238)">Only affected by properties like</span>&nbsp;color, border-radius, background
+		                        </p>
+		                        <p style="color:rgb(238, 238, 238)">Takes longer when using inefficient styles</p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 888px; left: 36px; top: 521px;">
+		                    <div class="sl-block-content fragment" style="z-index: 13;" data-fragment-index="0">
+		                        <p>
+		                            <strong>Note:&nbsp;</strong>This step is the heaviest from all. Modern browsers use hardware acceleration to improve the performance.
+		                        </p>
+		                    </div>
+		                </div>
+		            </section>
+		            <section>
+		                <div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 33px; height: auto;">
+		                    <div class="sl-block-content" style="z-index: 11; background-color: rgba(0, 0, 0, 0);">
+		                        <h2>Composite Layers</h2>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 898px; left: 31px; top: 237px;">
+		                    <div class="sl-block-content" style="z-index: 12;">
+		                        <p style="color:rgb(238, 238, 238)">Draw layers into the screen</p>
+		                        <p style="color:rgb(238, 238, 238)">Only affected by&nbsp;transform and&nbsp;opacity</p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 471px;">
+		                    <div class="sl-block-content" style="z-index: 13;">
+		                        <p>This is
+		                            <strong>VERY</strong> cheap to do
+		                        </p>
+		                    </div>
+		                </div>
+		            </section>
+		            <section>
+		                <div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 33px; height: auto;">
+		                    <div class="sl-block-content" style="z-index: 11; background-color: rgba(0, 0, 0, 0);">
+		                        <h2>Animations</h2>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="code" style="min-width: 30px; min-height: 30px; width: 469px; height: 151px; left: 5px; top: 239px;">
+		                    <div class="sl-block-content" style="z-index: 12;">
+		                        <pre><code>@-webkit-keyframes abs {
+		    0%   {left:0px; top:0px;}
+		    25%  {left:200px; top:0px;}
+		    50%  {left:200px; top:200px;}
+		    75%  {left:0px; top:200px;}
+		    100% {left:0px; top:0px;}
+		}</code></pre>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="code" style="min-width: 30px; min-height: 30px; width: 469px; height: 151px; left: 486px; top: 239px;">
+		                    <div class="sl-block-content" style="z-index: 13;">
+		                        <pre><code>@-webkit-keyframes trans {
+		    0%   { transform: translate(0,0); }
+		    25%  { transform: translate(200%, 0);}
+		    50%  { transform: translate(200%, 200%);}
+		    75%  { transform: translate(0%, 200%);}
+		    100%  { transform: translate(0%, 0%);}
+		}</code></pre>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 767px; left: 97px; top: 101px;">
+		                    <div class="sl-block-content" style="z-index: 14;">
+		                        <p>
+		                            <span style="font-size:16px">
+		                                <a href="http://sgtcarneiro.github.io/enei-2015/rendering/" target="_blank">http://sgtcarneiro.github.io/enei-2015/rendering/</a>
+		                            </span>
+		                        </p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 348px; left: 66px; top: 401px;">
+		                    <div class="sl-block-content" style="z-index: 15;">
+		                        <p>
+		                            <span style="font-size:16px">
+		                                <a href="http://codepen.io/paulirish/pen/nkwKs" target="_blank">http://codepen.io/paulirish/pen/nkwKs</a>
+		                            </span>
+		                        </p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 890px; left: 41px; top: 560px;">
+		                    <div class="sl-block-content fragment" style="z-index: 16;" data-fragment-index="0">
+		                        <p>
+		                            <span style="font-size:16px">
+		                                <a href="http://www.paulirish.com/2012/why-moving-elements-with-translate-is-better-than-posabs-topleft/" target="_blank">http://www.paulirish.com/2012/why-moving-elements-with-translate-is-better-than-posabs-topleft/</a>
+		                            </span>
+		                        </p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 348px; left: 546px; top: 401px;">
+		                    <div class="sl-block-content" style="z-index: 17;">
+		                        <p>
+		                            <span style="font-size:16px">
+		                                <a href="http://codepen.io/paulirish/pen/LsxyF" target="_blank">http://codepen.io/paulirish/pen/LsxyF</a>
+		                            </span>
+		                        </p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 181px; top: 526px;">
+		                    <div class="sl-block-content fragment" style="z-index: 18;" data-fragment-index="0">
+		                        <p>
+		                            <span style="font-size:16px">
+		                                <strong>More Info</strong>
+		                            </span>
+		                        </p>
+		                    </div>
+		                </div>
+		            </section>
+		            <section>
+		                <div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 33px; height: auto;">
+		                    <div class="sl-block-content" style="z-index: 10; background-color: rgba(0, 0, 0, 0);">
+		                        <h2>Scroll</h2>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 847px; left: 57px; top: 231px;">
+		                    <div class="sl-block-content" style="z-index: 13;">
+		                        <p>Scroll events trigger new&nbsp;paints</p>
+		                        <p>Avoid doing anything expensive on scroll events</p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 900px; left: 31px; top: 426px;">
+		                    <div class="sl-block-content fragment" style="z-index: 14;" data-fragment-index="0">
+		                        <p>
+		                            <strong>Protip 1:&nbsp;</strong>use a translateZ(0) to enable GPU acceleration
+		                        </p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 900px; left: 31px; top: 489px;">
+		                    <div class="sl-block-content fragment" style="z-index: 16;" data-fragment-index="0">
+		                        <p>
+		                            <strong>Protip 2: </strong>use "pointer-events: none" to disable hover effects during scroll&nbsp;
+		                            <a href="http://jsbin.com/oNiVUYe/5/quiet" target="_blank">http://jsbin.com/oNiVUYe/5/quiet</a>
+		                        </p>
+		                    </div>
+		                </div>
+		            </section>
+		            <section>
+		                <div class="sl-block" data-block-type="image" style="min-width: 30px; min-height: 30px; width: 360px; height: 360px; left: 300px; top: 170px;">
+		                    <div class="sl-block-content" style="z-index: 11;">
+		                        <img data-natural-width="900" data-natural-height="900" style="visibility: visible;" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/ruicarneiro/images/1215448/js-logo.png"/>
+		                    </div>
+		                </div>
+		            </section>
+		            <section>
+		                <div class="sl-block" data-block-type="text" style="width: 898px; left: 31px; top: 238.5px; height: auto;">
+		                    <div class="sl-block-content" style="z-index: 10;">
+		                        <h1>DOM: Can't touch this</h1>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 832px; left: 64px; top: 331px;">
+		                    <div class="sl-block-content" style="z-index: 13;">
+		                        <p>Try to read/write from DOM only when needed</p>
+		                    </div>
+		                </div>
+		            </section>
+		            <section>
+		                <div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 33px; height: auto;">
+		                    <div class="sl-block-content" style="z-index: 10; background-color: rgba(0, 0, 0, 0);">
+		                        <h2>Layout Thrashing</h2>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="code" style="min-width: 30px; min-height: 30px; width: 422px; height: 376px; left: 29px; top: 237px;">
+		                    <div class="sl-block-content" style="z-index: 11;">
+		                        <pre><code>// Read
+		var h1 = element1.clientHeight;
+
+		// Write (invalidates layout)
+		element1.style.height = (h1 * 2) + 'px';
+
+		// Read (triggers layout)
+		var h2 = element2.clientHeight;
+
+		// Write (invalidates layout)
+		element2.style.height = (h2 * 2) + 'px';
+
+		// Read (triggers layout)
+		var h3 = element3.clientHeight;
+
+		// Write (invalidates layout)
+		element3.style.height = (h3 * 2) + 'px';</code></pre>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="code" style="min-width: 30px; min-height: 30px; width: 420px; height: 300px; left: 510px; top: 237px;">
+		                    <div class="sl-block-content" style="z-index: 12;">
+		                        <pre><code>// Read
+		var h1 = element1.clientHeight;
+		var h2 = element2.clientHeight;
+		var h3 = element3.clientHeight;
+
+		// Write (invalidates layout)
+		element1.style.height = (h1 * 2) + 'px';
+		element2.style.height = (h2 * 2) + 'px';
+		element3.style.height = (h3 * 2) + 'px';
+
+		// Document reflows at end of frame</code></pre>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 305px; left: 88px; top: 171px;">
+		                    <div class="sl-block-content" style="z-index: 13;">
+		                        <p>
+		                            <span style="color:#FF0000">
+		                                <strong>Bad</strong>
+		                            </span>
+		                        </p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 305px; left: 568px; top: 171px;">
+		                    <div class="sl-block-content" style="z-index: 15;">
+		                        <p>
+		                            <span style="color:#00FF00">
+		                                <strong>Good</strong>
+		                            </span>
+		                        </p>
+		                    </div>
+		                </div>
+		            </section>
+		            <section>
+		                <div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 33px; height: auto;">
+		                    <div class="sl-block-content" style="z-index: 11; background-color: rgba(0, 0, 0, 0);">
+		                        <h2>Memory Profiling</h2>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 254px; left: 32px; top: 272px;">
+		                    <div class="sl-block-content" style="z-index: 12; text-align: left;">
+		                        <ul>
+		                            <li>JS Heap</li>
+		                            <li>Documents</li>
+		                            <li>Nodes</li>
+		                            <li>Listeners</li>
+		                        </ul>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="image" style="min-width: 30px; min-height: 30px; width: 685px; height: 308.566710700132px; left: 275px; top: 210px;">
+		                    <div class="sl-block-content" style="z-index: 13;">
+		                        <img data-natural-width="1514" data-natural-height="682" style="visibility: visible;" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/ruicarneiro/images/1215756/memory-profiling.png"/>
+		                    </div>
+		                </div>
+		            </section>
+		            <section>
+		                <div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 33px; height: auto;">
+		                    <div class="sl-block-content" style="z-index: 11; background-color: rgba(0, 0, 0, 0);">
+		                        <h2>Memory Leak: Nodes</h2>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 888px; left: 36px; top: 299.5px;">
+		                    <div class="sl-block-content" style="z-index: 12;">
+		                        <p>You can't control when
+		                            <span style="color:rgb(255, 255, 255)">Garbage collector</span>&nbsp;is called in javascript
+		                        </p>
+		                        <p>GC won't remove your nodes until there is no reference to it.</p>
+		                        <p>
+		                            <strong>Very easy</strong> to create leak,
+		                            <strong> extremely hard</strong>&nbsp;to find the reason
+		                        </p>
+		                    </div>
+		                </div>
+		            </section>
+		            <section>
+		                <div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 33px; height: auto;">
+		                    <div class="sl-block-content" style="z-index: 11; background-color: rgba(0, 0, 0, 0);">
+		                        <h2>Memory Leak: Listeners</h2>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 826px; left: 67px; top: 265px;">
+		                    <div class="sl-block-content" style="z-index: 12;" dir="ui">
+		                        <p>Use an event system for attaching event handlers (e.g. jQuery, Dojo)</p>
+		                        <p>Always remove your listener when not needed</p>
+		                        <p>Avoid circular references</p>
+		                    </div>
+		                </div>
+		            </section>
+		            <section>
+		                <div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 33px; height: auto;">
+		                    <div class="sl-block-content" style="z-index: 11; background-color: rgba(0, 0, 0, 0);">
+		                        <h2>Event Listeners</h2>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="code" style="min-width: 30px; min-height: 30px; width: 573px; height: 238px; left: 194px; top: 151px;">
+		                    <div class="sl-block-content" style="z-index: 12;">
+		                        <pre><code>&lt;body&gt;
+		&lt;div class='menu-bar' id='myMenu'&gt;&lt;/div&gt;
+		&lt;script language='javascript'&gt;
+		var menu = document.getElementById('myMenu');
+		AttachEvent(menu);
+		function AttachEvent(element) {
+		  element.attachEvent( "onmouseover", mouseHandler);
+		  function mouseHandler(){ /* whatever */ }
+		}
+		&lt;/script&gt;&lt;/body&gt;</code></pre>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 928px; left: 16px; top: 420px;">
+		                    <div class="sl-block-content" style="z-index: 13;">
+		                        <p>DOM element &gt; event handler &gt; closure scope &gt; DOM</p>
+		                        <p>&nbsp;</p>
+		                        <p>The DOM element and the event listener will never be clear by the Garbage Collector because the circular reference.</p>
+		                    </div>
+		                </div>
+		            </section>
+		            <section>
+		                <div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 235px; height: auto;">
+		                    <div class="sl-block-content" style="z-index: 10;">
+		                        <h1>Using DevTools</h1>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 331px;">
+		                    <div class="sl-block-content" style="z-index: 12;">
+		                        <p>
+		                            <span style="font-size:20px">
+		                                <a href="http://sgtcarneiro.github.io/enei-2015/profiling/" target="_blank">http://sgtcarneiro.github.io/enei-2015/profiling/</a>
+		                            </span>
+		                        </p>
+		                    </div>
+		                </div>
+		            </section>
+		            <section>
+		                <div class="sl-block" data-block-type="text" style="width: 800px; left: 81px; top: 33px; height: auto;">
+		                    <div class="sl-block-content" style="z-index: 11; background-color: rgba(0, 0, 0, 0);">
+		                        <h2>Pick your framework</h2>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 107px;">
+		                    <div class="sl-block-content" style="z-index: 12;">
+		                        <p>
+		                            <a href="http://http://todomvc.com/" target="_blank">
+		                                <span style="text-align:left">&nbsp;</span>
+		                            </a>
+		                            <a href="http://todomvc.com/" target="_blank">http://todomvc.com/</a>
+		                        </p>
+		                    </div>
+		                </div>
+		                <div class="sl-block" data-block-type="image" style="min-width: 30px; min-height: 30px; width: 439.039426523298px; height: 452px; left: 261px; top: 194px;">
+		                    <div class="sl-block-content" style="z-index: 13;">
+		                        <img style="visibility: visible;" data-natural-width="542" data-natural-height="558" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/ruicarneiro/images/1216522/frameworks.png"/>
+		                    </div>
+		                </div>
+		            </section>
+		            <section>
+		                <div class="sl-block" data-block-type="text" style="width: 694px; left: 149px; top: 225px; height: auto;">
+		                    <div class="sl-block-content" dir="ui">
+		                        <h1 style="color: rgb(255, 255, 255); text-align: left;">&gt; slides.get(pos);</h1>
+		                        <h1 style="color: rgb(255, 255, 255); text-align: left;">
+		                            <span style="color:#A9A9A9">&lt; undefined</span>
+		                        </h1>
+		                    </div>
+		                </div>
+		            </section>
+		        </div>
+		    </div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
